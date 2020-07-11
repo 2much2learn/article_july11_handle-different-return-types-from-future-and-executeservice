@@ -1,0 +1,39 @@
+@startuml
+
+title __EXAMPLE's Class Diagram__\n
+
+@startuml
+class ServiceA {
+ +A a
+ ~processA()
+}
+
+class ServiceB {
+ +B b
+ ~processB()
+}
+
+class ServiceC {
+ +C c
+ ~processC()
+}
+
+class Processor {
+ + ProcessorVO processRequest()
+ - List<Callable<Object>> servicesToCall()
+}
+
+class ProcessorVO {
+ + String valueFromA
+ + BigDecimal valueFromB
+ + LocalDate valueFromC
+}
+
+ProcessorVO <|-- Processor
+Processor <|-- ServiceA
+Processor <|-- ServiceB
+Processor <|-- ServiceC
+
+@enduml
+
+@enduml
